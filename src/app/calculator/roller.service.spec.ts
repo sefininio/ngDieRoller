@@ -1,12 +1,16 @@
 /* tslint:disable:no-unused-variable */
 import { RollerService } from './roller.service';
+import { TestBed } from '@angular/core/testing';
 
 describe('RollerService', () => {
 
     let rollerService: RollerService;
 
     beforeEach(() => {
-        rollerService = new RollerService();
+      TestBed.configureTestingModule({
+        providers: [RollerService],
+      });
+      rollerService = TestBed.get(RollerService);
     });
 
     it('should roll nothing', () => {
