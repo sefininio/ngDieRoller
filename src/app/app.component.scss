@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.results-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .details {
+    margin: 10px;
+    width: 25vw;
+    height:75vh;
+  }
+}
