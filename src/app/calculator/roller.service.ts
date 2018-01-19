@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { RollerModel } from './roller.model';
-import { isEmpty } from 'lodash';
 
 @Injectable()
 export class RollerService {
