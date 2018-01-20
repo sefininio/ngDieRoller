@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
   rolls: string[] = [];
   resRolls: string[] = [];
   presets: string[];
+  presetEditMode = false;
+  editedPresets: string[] = [];
 
   constructor(private rollerService: RollerService,
               private presetService: PresetsService) {
@@ -59,4 +61,19 @@ export class AppComponent implements OnInit {
     this.resRolls = this.rollerService.rollerModel.resRolls;
   }
 
+  enterEditMode() {
+    this.presetEditMode = true;
+    this.editedPresets = Array.from(this.presets);
+  }
+
+  savePresets() {
+    this.presetService.savePresets(this.editedPresets);
+    this.presets = this.presetService.getPresets();
+    this.presetEditMode = false;
+    this.editedPresets = [];
+  }
+
+  editPreset(event, idx) {
+    this.editedPresets[idx] = event.target.value;
+  }
 }
