@@ -10,9 +10,35 @@
   flex-direction: row;
   justify-content: center;
 
-  .details {
+  .mat-card {
     margin: 10px;
     width: 25vw;
-    height:75vh;
+    min-height: 50vh;
+
+    .card-title {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    .mat-grid-list {
+      .mat-grid-tile {
+        background-color: lightblue;
+
+        &.edit-mode {
+          background-color: transparent;
+        }
+      }
+    }
+
+    .list {
+      list-style: none;
+      text-align: left;
+
+      .list-item {
+
+      }
+    }
   }
 }

@@ -19,4 +19,11 @@ export class PresetsService {
   public savePreset(preset: string, idx: number) {
     localStorage.setItem(`preset${idx}`, preset);
   }
+
+  public savePresets(presets: string[]) {
+    presets.map((preset, idx) => {
+      this.savePreset(preset, idx + 1);
+    });
+  }
+
 }
