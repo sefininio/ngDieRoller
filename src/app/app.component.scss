@@ -10,34 +10,42 @@
   flex-direction: row;
   justify-content: center;
 
-  .mat-card {
-    margin: 10px;
-    width: 25vw;
-    min-height: 50vh;
+  .mat-tab-group {
+    width: 80vw;
 
-    .card-title {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
+    .mat-tab-label {
+      width: 33%;
     }
 
-    .mat-grid-list {
-      .mat-grid-tile {
-        background-color: lightblue;
+    .mat-card {
+      margin: 10px;
+      min-height: 50vh;
 
-        &.edit-mode {
-          background-color: transparent;
+      .card-title {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+      }
+
+      .mat-grid-list {
+        .mat-grid-tile {
+          background-color: lightblue;
+          cursor: pointer;
+
+          &.edit-mode {
+            background-color: transparent;
+          }
         }
       }
-    }
 
-    .list {
-      list-style: none;
-      text-align: left;
+      .list {
+        list-style: none;
+        text-align: left;
 
-      .list-item {
+        .list-item {
 
+        }
       }
     }
   }

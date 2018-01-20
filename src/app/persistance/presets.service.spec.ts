@@ -1,4 +1,4 @@
-import { PresetsService } from './presets.service';
+import { PresetsService, PRESETS_NUM } from './presets.service';
 import { TestBed } from '@angular/core/testing';
 
 describe('Presets service', () => {
@@ -39,7 +39,7 @@ describe('Presets service', () => {
 
   it('should get default presets', () => {
     const presets = presetsService.getPresets();
-    expect(presets.length).toEqual(20);
+    expect(presets.length).toEqual(PRESETS_NUM);
     expect(presets[0]).toEqual('1d6');
   });
 
@@ -47,7 +47,7 @@ describe('Presets service', () => {
     localStorage.setItem('preset10', '20d8');
     const presets = presetsService.getPresets();
 
-    expect(presets.length).toEqual(20);
+    expect(presets.length).toEqual(PRESETS_NUM);
     expect(presets[9]).toEqual('20d8');
   });
 

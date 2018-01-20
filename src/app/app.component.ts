@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { RollerService } from './calculator/roller.service';
 import { PresetsService } from './persistance/presets.service';
@@ -6,7 +6,8 @@ import { PresetsService } from './persistance/presets.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit {
   title = 'Die Roller';
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit {
   presets: string[];
   presetEditMode = false;
   editedPresets: string[] = [];
+  selectedTabIdx = 0;
 
   constructor(private rollerService: RollerService,
               private presetService: PresetsService) {
@@ -59,6 +61,8 @@ export class AppComponent implements OnInit {
 
     this.rolls = this.rollerService.rollerModel.rolls;
     this.resRolls = this.rollerService.rollerModel.resRolls;
+    this.selectedTabIdx = 1;
+
   }
 
   enterEditMode() {
@@ -67,8 +71,7 @@ export class AppComponent implements OnInit {
   }
 
   savePresets() {
-    this.presetService.savePresets(this.editedPresets);
-    this.presets = this.presetService.getPresets();
+    this.presets = this.presetService.savePresets(this.editedPresets);
     this.presetEditMode = false;
     this.editedPresets = [];
   }
